@@ -52,16 +52,16 @@ Abrir em [http://localhost:3000](http://localhost:3000)
 
 ## 📊 Resultados
 
-| Métrica                    | **ANTES** | **DEPOIS** |
-|---------------------------|-----------|-----------|
-| **Performance**           | 100 | 100 |
+| Métrica                    | **ANTES** (`<img>`) | **DEPOIS** (`next/image`) |
+|---------------------------|--------------------|-------------------------|
+| **Performance**           | 92 | 100 |
 | First Contentful Paint (FCP) | 0.2 s | 0.2 s |
-| Largest Contentful Paint (LCP) | 0.4 s | 0.6 s |
+| Largest Contentful Paint (LCP) | 1.1 s | 0.6 s |
 | Total Blocking Time (TBT) | 0 ms | 0 ms |
-| Cumulative Layout Shift (CLS) | 0 | 0 |
-| Speed Index               | 0.2 s | 0.2 s |
+| Cumulative Layout Shift (CLS) | 0.152 | 0 |
+| Speed Index               | 0.3 s | 0.2 s |
 
-Mesmo que a pontuação final tenha se mantido em 100, a versão **depois** aplica práticas recomendadas que garantem uma melhor experiência para usuários em páginas mais pesadas e redes mais lentas.
+> 📈 **Conclusão:** Após substituir `<img>` por `next/image`, aplicar `priority` na imagem principal e permitir lazy loading automático no grid, houve melhora significativa no **LCP** e no **CLS**, refletindo uma experiência de carregamento mais estável e rápida para o usuário.
 
 ---
 
@@ -74,5 +74,5 @@ Mesmo que a pontuação final tenha se mantido em 100, a versão **depois** apli
 ---
 
 ## 📌 Conclusão
-Este projeto serviu como laboratório para entender como otimizações simples de imagem impactam métricas de performance como **LCP** e **Speed Index**.  
+Este projeto serviu como laboratório para entender como otimizações simples de imagem impactam métricas de performance como **LCP** e **CLS**.  
 A abordagem pode ser aplicada em projetos reais para garantir melhor carregamento, principalmente em mobile.
