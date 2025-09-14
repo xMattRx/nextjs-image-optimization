@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🖼️ Next.js Performance PDI
 
-## Getting Started
+Este projeto foi criado como parte do meu **PDI** para estudar e aplicar práticas de **performance e acessibilidade** usando **Next.js**.
 
-First, run the development server:
+---
 
+## 🎯 Objetivo
+- Criar um projeto simples em Next.js.
+- Renderizar uma imagem principal (**hero**) e um grid de imagens.
+- Aplicar boas práticas de **otimização de imagens**, incluindo:
+  - Uso do componente `next/image`
+  - `priority` para melhorar o **LCP**
+  - **Lazy loading automático** para imagens abaixo da dobra
+  - `sizes` responsivo para reduzir peso em telas menores
+- Medir métricas de performance com **Lighthouse** antes e depois das melhorias.
+
+---
+
+## 🚀 Como Rodar o Projeto
+
+1. Instalar dependências:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Rodar em modo desenvolvimento:
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Para medir performance, rodar em **modo produção**:
+```bash
+npm run build
+npm start
+```
+Abrir em [http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🔎 Como Medir no Lighthouse
 
-To learn more about Next.js, take a look at the following resources:
+1. Abrir o Chrome e acessar `http://localhost:3000`.
+2. Abrir DevTools (`Ctrl + Shift + I`).
+3. Ir para a aba **Lighthouse**.
+4. Selecionar:
+   - **Mode:** Navigation
+   - **Device:** Mobile
+   - **Categories:** Performance (pode incluir Accessibility, Best Practices e SEO)
+5. Rodar o relatório e salvar os resultados.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📊 Resultados
 
-## Deploy on Vercel
+| Métrica                    | **ANTES** | **DEPOIS** |
+|---------------------------|-----------|-----------|
+| **Performance**           | 100 | 100 |
+| First Contentful Paint (FCP) | 0.2 s | 0.2 s |
+| Largest Contentful Paint (LCP) | 0.4 s | 0.6 s |
+| Total Blocking Time (TBT) | 0 ms | 0 ms |
+| Cumulative Layout Shift (CLS) | 0 | 0 |
+| Speed Index               | 0.2 s | 0.2 s |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Mesmo que a pontuação final tenha se mantido em 100, a versão **depois** aplica práticas recomendadas que garantem uma melhor experiência para usuários em páginas mais pesadas e redes mais lentas.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🛠️ Tecnologias Usadas
+- **Next.js 15**
+- **TypeScript**
+- **next/image** (para otimização automática)
+- **Tailwind CSS** (para layout rápido)
+
+---
+
+## 📌 Conclusão
+Este projeto serviu como laboratório para entender como otimizações simples de imagem impactam métricas de performance como **LCP** e **Speed Index**.  
+A abordagem pode ser aplicada em projetos reais para garantir melhor carregamento, principalmente em mobile.
